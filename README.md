@@ -1,13 +1,17 @@
-# vue-sx
+# vue-stylex
 
-This template should help get you started developing with Vue 3 in Vite.
+vue-stylex allows  you to specify any  CSS properties you may need bases different break point,
+like xs, sm, md,lg,xl,xxl in vuetify.
+````
+v-sx:[css property name]="css property value"
+````
 
 ## 🔧  Install
-`npm install vue-sx`
+`npm install vue-stylex`
 
 ```javascript
 
-import sxStyle from 'vue-sx'
+import sxStyle from 'vue-stylex'
 // this is the default options of Vuetify
 // you can use this option to overwrite the default breakpoint settings.
 const breakpointThresholds = {
@@ -22,7 +26,8 @@ const breakpointThresholds = {
 createApp(App).use(sxStyle,/*breakpointThresholds*/).mount('#app')
 
 ```
-## 👈 Shortest usecase
+## 👈 Shortest use case
+set different color for different break point
 ```javascript
 const sxStyle = {
 xs: 'red',
