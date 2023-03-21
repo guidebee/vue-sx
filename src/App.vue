@@ -28,7 +28,8 @@ const sxColorStyle = {
     <div class="wrapper">
       <HelloWorld msg="You did it!"/>
       <div v-sx:backgroundColor="sxColorStyle"
-           v-sx:fontSize="sxFontStyle">With Vue Media query style extension
+           v-sx:fontSize="sxFontStyle">
+        With Vue Media query style extension
       </div>
     </div>
   </header>

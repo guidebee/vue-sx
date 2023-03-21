@@ -1,9 +1,18 @@
 import json2mq from 'json2mq';
 
+const breakpointThresholds = {
+    xs: 0,
+    sm: 600,
+    md: 960,
+    lg: 1280,
+    xl: 1920,
+    xxl: 2560,
+};
 const sxStyle = {
     install(app, options) {
 
-        const mediaQueries = convertBreakpointsToMediaQueries(options);
+        const breakPoints = options || breakpointThresholds;
+        const mediaQueries = convertBreakpointsToMediaQueries(breakPoints);
         app.directive('sx',
             {
                 mounted: (el, binding) => {
@@ -11,10 +20,10 @@ const sxStyle = {
                     const styleProperty = binding.arg;
                     if (styleProperty) {
                         const windowWidth = window.innerWidth;
-                        const currentBreakpoint = getBreakpoint(windowWidth, options);
+                        const currentBreakpoint = getBreakpoint(windowWidth, breakPoints);
                         console.log(currentBreakpoint.value);
                         el.style[styleProperty] = transformValuesFromBreakpoints(
-                            Object.keys(options),
+                            Object.keys(breakPoints),
                             styleValues,
                             currentBreakpoint,
                         );
@@ -22,7 +31,7 @@ const sxStyle = {
                             const mediaQuery = mediaQueries[key];
                             const enter = () => {
                                 el.style[styleProperty] = transformValuesFromBreakpoints(
-                                    Object.keys(options),
+                                    Object.keys(breakPoints),
                                     styleValues,
                                     key,
                                 );

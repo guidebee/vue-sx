@@ -11,6 +11,11 @@
     "dist": "node build/babel.release.js",
     "build:types": "tsc src/index.js -d --declarationDir src/ --declarationMap --emitDeclarationOnly --allowJs"
   },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guidebee/vue-sx.git"
+  },
   "keywords": [
     "vuejs",
     "responsive"
